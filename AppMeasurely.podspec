@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AppMeasurely'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'Mobile attribution and analytics SDK for iOS'
   s.description      = 'AppMeasurely iOS SDK for mobile attribution tracking. Track installs, sessions, custom events and revenue.'
   s.homepage         = 'https://appmeasurely.com'
