@@ -109,6 +109,13 @@ import UIKit
         tracker.setUserProperty(key, value: value)
     }
 
+    /// Set customer user ID — links events across devices
+    /// Call this after user logs in with your internal user ID
+    @objc public static func setCustomUserId(_ userId: String) {
+        guard shared.initialized, let tracker = shared.tracker else { return }
+        tracker.setCustomUserId(userId)
+    }
+
     /// Set ATT status (call after requesting ATT permission)
     @objc public static func setATTStatus(_ status: Int) {
         guard shared.initialized, let tracker = shared.tracker else { return }

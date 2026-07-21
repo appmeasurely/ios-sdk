@@ -8,6 +8,7 @@ class AMTracker {
     private let queue: AMQueue
     private let executor = DispatchQueue(label: "com.appmeasurely.tracker", qos: .background)
     private var userProperties: [String: Any] = [:]
+    private var customerUserId: String? = nil
     private var timer: Timer?
     var attStatus: Int = -1 // -1 = not set
 
@@ -83,6 +84,10 @@ class AMTracker {
         userProperties[key] = value
     }
 
+    func setCustomUserId(_ userId: String) {
+        self.customerUserId = userId
+    }
+
     private func buildBasePayload(eventName: String) -> [String: Any] {
         var payload: [String: Any] = [
             "app_key": config.appKey,
@@ -95,7 +100,8 @@ class AMTracker {
             "language": deviceInfo.language,
             "screen_width": deviceInfo.screenWidth,
             "screen_height": deviceInfo.screenHeight,
-            "timestamp": ISO8601DateFormatter().string(from: Date())
+            "timestamp": ISO8601DateFormatter().string(from: Date()),
+            "customer_user_id": customerUserId as Any
         ]
 
         if attStatus >= 0 {
