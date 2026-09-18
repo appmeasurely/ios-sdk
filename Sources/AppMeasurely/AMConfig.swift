@@ -25,19 +25,19 @@ import Foundation
     }
 
     /// Builder-style setters
-    @objc @discardableResult
+    @discardableResult
     public func setEndpoint(_ endpoint: String) -> AMConfig {
         self.endpoint = endpoint
         return self
     }
 
-    @objc @discardableResult
+    @discardableResult
     public func setDebugMode(_ enabled: Bool) -> AMConfig {
         self.debugMode = enabled
         return self
     }
 
-    @objc @discardableResult
+    @discardableResult
     public func setTrackSessions(_ enabled: Bool) -> AMConfig {
         self.trackSessions = enabled
         return self
